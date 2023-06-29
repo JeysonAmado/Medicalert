@@ -1,0 +1,13 @@
+version: "3.9"
+
+#Puerto_maquina:puerto_contenedor
+services:
+
+  baseproject:
+    ports:
+      - "8090:8090"
+
+
+  db-postgres:
+    ports:
+      - "5432:5432"
