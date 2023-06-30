@@ -1,4 +1,4 @@
-package Maps;
+package com.JeysonAmado.App.Maps;
 
 import org.modelmapper.ModelMapper;
 

@@ -24,8 +24,8 @@ public class SecurityConfig {
                 .authorizeHttpRequests()
                 .requestMatchers("/auth/**").permitAll()
                 .requestMatchers("/users/**").hasRole("ADMIN")
-                .requestMatchers("/products/create").hasAuthority("ADD_PRODUCTS")
-                .requestMatchers("/products/**").hasAnyRole("EMPLOYER","ADMIN")
+                .requestMatchers("/alerts/**").hasAnyRole("CUSTOMER","ADMIN")
+                .requestMatchers("/medications/**").hasAnyRole("CUSTOMER","ADMIN")
                 .requestMatchers(HttpMethod.POST).hasRole("ADMIN")
                 .requestMatchers(HttpMethod.PUT).hasRole("ADMIN")
                 .requestMatchers(HttpMethod.DELETE).hasRole("ADMIN")
@@ -39,7 +39,6 @@ public class SecurityConfig {
     public AuthenticationManager authenticationManager (AuthenticationConfiguration configuration) throws Exception {
         return configuration.getAuthenticationManager();
     }
-
 
     @Bean
     public PasswordEncoder passwordEncoder(){
