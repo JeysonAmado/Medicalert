@@ -1,9 +1,9 @@
-package com.JeysonAmado.Medicalert;
+package com.JeysonAmado.App;
 
 import org.junit.jupiter.api.Test;
 import org.springframework.boot.test.context.SpringBootTest;
 
-@SpringBootTest
+@SpringBootTest(classes = MedicalertApplication.class)
 class MedicalertApplicationTests {
 
 //	@Test

@@ -1,7 +1,7 @@
 package com.JeysonAmado.App.Entities.Alerts;
 
 import com.JeysonAmado.App.Entities.BaseEntity;
-import com.JeysonAmado.App.Entities.Medications.MedicationEntity;
+import com.JeysonAmado.App.Entities.Medications.MedicationRegisterEntity;
 import com.JeysonAmado.App.Entities.Users.UserEntity;
 import jakarta.persistence.*;
 import org.hibernate.annotations.Where;
@@ -15,11 +15,12 @@ import java.time.LocalDateTime;
 public class AlertEntity extends BaseEntity {
 
     @ManyToOne
-    @JoinColumn(name = "medication_id", referencedColumnName = "id", insertable = false, updatable = false)
-    private MedicationEntity medicationId;
+    @JoinColumn(name = "medication_register_id", referencedColumnName = "id", insertable = false, updatable = false)
+    private MedicationRegisterEntity medicationRegister;
 
     @Column(name = "hours_to_repeat")
     double hoursToRepeat;
+
     @Column(name = "doses_taken")
     int dosesTaken;
 
@@ -40,6 +41,14 @@ public class AlertEntity extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "user_who_deleted_id", referencedColumnName = "id", insertable = false, updatable = false)
     private UserEntity userWhoDeleted;
+
+    public MedicationRegisterEntity getMedicationRegister() {
+        return medicationRegister;
+    }
+
+    public void setMedicationRegister(MedicationRegisterEntity medicationRegister) {
+        this.medicationRegister = medicationRegister;
+    }
 
     public double getHoursToRepeat() {
         return hoursToRepeat;
@@ -100,10 +109,14 @@ public class AlertEntity extends BaseEntity {
     @Override
     public String toString() {
         return "AlertEntity{" +
-                "hoursToRepeat=" + hoursToRepeat +
+                "medicationRegister=" + medicationRegister +
+                ", hoursToRepeat=" + hoursToRepeat +
                 ", dosesTaken=" + dosesTaken +
                 ", startAt=" + startAt +
                 ", nextAlertAt=" + nextAlertAt +
+                ", userWhoCreated=" + userWhoCreated +
+                ", userWhoUpdated=" + userWhoUpdated +
+                ", userWhoDeleted=" + userWhoDeleted +
                 '}';
     }
 }

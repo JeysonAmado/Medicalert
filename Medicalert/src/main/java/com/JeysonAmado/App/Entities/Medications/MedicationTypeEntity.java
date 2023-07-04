@@ -1,21 +1,14 @@
 package com.JeysonAmado.App.Entities.Medications;
 
-
 import com.JeysonAmado.App.Entities.BaseEntity;
 import com.JeysonAmado.App.Entities.Users.UserEntity;
 import jakarta.persistence.*;
 import org.hibernate.annotations.Where;
 
-
 @Entity
 @Where(clause = "deleted_at is NULL")
-@Table(name = "medications")
-public class MedicationEntity extends BaseEntity {
-
-
-    @ManyToOne
-    @JoinColumn(name = "medication_type_id", referencedColumnName = "id", insertable = false, updatable = false)
-    private MedicationTypeEntity medicationType;
+@Table(name = "medication_types")
+public class MedicationTypeEntity extends BaseEntity {
 
     @Column
     private String name;
@@ -31,14 +24,6 @@ public class MedicationEntity extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "user_who_deleted_id", referencedColumnName = "id", insertable = false, updatable = false)
     private UserEntity userWhoDeleted;
-
-    public MedicationTypeEntity getMedicationType() {
-        return medicationType;
-    }
-
-    public void setMedicationType(MedicationTypeEntity medicationTypeId) {
-        this.medicationType = medicationTypeId;
-    }
 
     public String getName() {
         return name;
@@ -70,5 +55,15 @@ public class MedicationEntity extends BaseEntity {
 
     public void setUserWhoDeleted(UserEntity userWhoDeleted) {
         this.userWhoDeleted = userWhoDeleted;
+    }
+
+    @Override
+    public String toString() {
+        return "MedicationTypeEntity{" +
+                "name='" + name + '\'' +
+                ", userWhoCreated=" + userWhoCreated +
+                ", userWhoUpdated=" + userWhoUpdated +
+                ", userWhoDeleted=" + userWhoDeleted +
+                '}';
     }
 }

@@ -3,3 +3,6 @@ Medicalert/src/main/resources/application.properties
 .devops/docker/develop/data
 .devops/docker/develop/postgresql
 .idea
+*.iws
+*.iml
+*.ipr

@@ -8,11 +8,8 @@ import com.JeysonAmado.App.Http.Config.CustomUserDetails;
 import com.JeysonAmado.App.Http.Config.JWTUtilities;
 import com.JeysonAmado.App.Interfaces.Services.UserRoleServiceInterface;
 import com.JeysonAmado.App.Interfaces.Services.UserServiceInterface;
-import jakarta.persistence.PersistenceException;
 import jakarta.transaction.Transactional;
-import org.postgresql.util.PSQLException;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.dao.DataAccessException;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -23,7 +20,8 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import static com.JeysonAmado.App.Utilities.Constants.UserRoleConstant.*;
+
+import static com.JeysonAmado.App.Utilities.Constants.UserRoleConstant.CUSTOMER_ID;
 
 @RestController
 @RequestMapping("/auth")

@@ -1,6 +1,5 @@
 package com.JeysonAmado.App.Services;
 
-import com.JeysonAmado.App.Entities.Users.UserEntity;
 import com.JeysonAmado.App.Entities.Users.UserRoleEntity;
 import com.JeysonAmado.App.Interfaces.Services.UserRoleServiceInterface;
 import com.JeysonAmado.App.Repositories.Users.UserRoleRepository;
