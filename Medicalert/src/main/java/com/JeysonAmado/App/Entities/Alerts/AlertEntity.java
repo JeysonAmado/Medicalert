@@ -18,17 +18,20 @@ public class AlertEntity extends BaseEntity {
     @JoinColumn(name = "medication_register_id", referencedColumnName = "id", insertable = false, updatable = false)
     private MedicationRegisterEntity medicationRegister;
 
+    @Column
+    private String name;
+
     @Column(name = "hours_to_repeat")
-    double hoursToRepeat;
+    private double hoursToRepeat;
 
     @Column(name = "doses_taken")
-    int dosesTaken;
+    private int dosesTaken;
 
     @Column(name = "start_at")
-    LocalDateTime startAt;
+    private LocalDateTime startAt;
 
     @Column(name = "next_alert_at")
-    LocalDateTime nextAlertAt;
+    private LocalDateTime nextAlertAt;
 
     @ManyToOne
     @JoinColumn(name = "user_who_created_id", referencedColumnName = "id", insertable = false, updatable = false)
@@ -48,6 +51,14 @@ public class AlertEntity extends BaseEntity {
 
     public void setMedicationRegister(MedicationRegisterEntity medicationRegister) {
         this.medicationRegister = medicationRegister;
+    }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
     }
 
     public double getHoursToRepeat() {
@@ -110,6 +121,7 @@ public class AlertEntity extends BaseEntity {
     public String toString() {
         return "AlertEntity{" +
                 "medicationRegister=" + medicationRegister +
+                ", name='" + name + '\'' +
                 ", hoursToRepeat=" + hoursToRepeat +
                 ", dosesTaken=" + dosesTaken +
                 ", startAt=" + startAt +

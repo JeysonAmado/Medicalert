@@ -1,0 +1,83 @@
+
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                        http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+
+    <changeSet id="202307052" author="JeysonAmado">
+        <!-- Inserting users -->
+        <insert tableName="users">
+            <column name="id" valueNumeric="1"/>
+            <column name="name" value="admin"/>
+            <column name="password" value="$2a$10$/j.Djt8jRpESq8He7XwaluRQD343lNKX7J8No/vZN2LSSPT4x1sAK"/>
+            <column name="email" value="jeyson@admin.net"/>
+            <column name="user_who_created_id" valueNumeric="1"/>
+            <column name="created_at" valueDate="2023-06-29 14:39:14.506"/>
+        </insert>
+        <insert tableName="users">
+            <column name="id" valueNumeric="52"/>
+            <column name="name" value="Goku"/>
+            <column name="password" value="$2a$10$bYkNvKtpmIiDy9izWGozOOFlIgV2kopmJ3CA9n7poLwwEGoeYdsZ6"/>
+            <column name="email" value="goku@example.com"/>
+            <column name="created_at" valueDate="2023-06-30 10:08:57.284"/>
+        </insert>
+        <insert tableName="users">
+            <column name="id" valueNumeric="102"/>
+            <column name="name" value="Vegeta"/>
+            <column name="password" value="$2a$10$VEnfiq.dS5VQ4gYYhV.MG.GB8IKn3m4RzDc8gkZVQ92BLn3DjwR56"/>
+            <column name="email" value="vegeta@example.com"/>
+            <column name="created_at" valueDate="2023-06-30 10:22:00.113"/>
+        </insert>
+        <insert tableName="users">
+            <column name="id" valueNumeric="352"/>
+            <column name="name" value="Piccolo"/>
+            <column name="password" value="$2a$10$Ky41rFoXtZsKrlTDTUxP4eGqI23tjoEXZ6K2p2/SehryccZ0WbXTe"/>
+            <column name="email" value="piccolo@example.com"/>
+            <column name="created_at" valueDate="2023-06-30 10:47:38.266"/>
+        </insert>
+        <!-- Inserting roles -->
+        <insert tableName="roles">
+            <column name="id" valueNumeric="1"/>
+            <column name="name" value="ADMIN"/>
+            <column name="user_who_created_id" valueNumeric="1"/>
+            <column name="created_at" valueDate="2023-07-05 00:00:00"/>
+        </insert>
+        <insert tableName="roles">
+            <column name="id" valueNumeric="2"/>
+            <column name="name" value="CUSTOMER"/>
+            <column name="user_who_created_id" valueNumeric="1"/>
+            <column name="created_at" valueDate="2023-07-05 00:00:00"/>
+        </insert>
+        <!-- Inserting user_roles -->
+        <insert tableName="user_roles">
+            <column name="id" valueNumeric="1"/>
+            <column name="user_id" valueNumeric="1"/>
+            <column name="role_id" valueNumeric="1"/>
+            <column name="user_who_created_id" valueNumeric="1"/>
+            <column name="created_at" valueDate="2023-07-05 00:00:00"/>
+        </insert>
+        <insert tableName="user_roles">
+            <column name="id" valueNumeric="2"/>
+            <column name="user_id" valueNumeric="52"/>
+            <column name="role_id" valueNumeric="2"/>
+            <column name="user_who_created_id" valueNumeric="1"/>
+            <column name="created_at" valueDate="2023-07-05 00:00:00"/>
+        </insert>
+        <insert tableName="user_roles">
+            <column name="id" valueNumeric="3"/>
+            <column name="user_id" valueNumeric="102"/>
+            <column name="role_id" valueNumeric="2"/>
+            <column name="user_who_created_id" valueNumeric="1"/>
+            <column name="created_at" valueDate="2023-07-05 00:00:00"/>
+        </insert>
+        <insert tableName="user_roles">
+            <column name="id" valueNumeric="4"/>
+            <column name="user_id" valueNumeric="352"/>
+            <column name="role_id" valueNumeric="2"/>
+            <column name="user_who_created_id" valueNumeric="1"/>
+            <column name="created_at" valueDate="2023-07-05 00:00:00"/>
+        </insert>
+    </changeSet>
+
+</databaseChangeLog>

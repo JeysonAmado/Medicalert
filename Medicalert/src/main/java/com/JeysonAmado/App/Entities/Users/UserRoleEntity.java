@@ -13,9 +13,9 @@ public class UserRoleEntity extends BaseEntity {
 
     @Column(name = "user_id")
     private Long userId;
+
     @Column(name = "role_id")
     private Long roleId;
-
 
     public Long getUserId() {
         return userId;

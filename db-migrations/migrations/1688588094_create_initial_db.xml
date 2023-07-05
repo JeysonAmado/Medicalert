@@ -1,0 +1,152 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                      http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-4.1.xsd">
+
+    <changeSet id="202305071" author="JeysonAmado">
+        <createTable tableName="users">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="password" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="email" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_who_created_id" type="BIGINT"/>
+            <column name="created_at" type="TIMESTAMP"/>
+            <column name="user_who_updated_id" type="BIGINT"/>
+            <column name="updated_at" type="TIMESTAMP"/>
+            <column name="user_who_deleted_id" type="BIGINT"/>
+            <column name="deleted_at" type="TIMESTAMP"/>
+        </createTable>
+
+        <createTable tableName="roles">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="user_who_created_id" type="BIGINT"/>
+            <column name="created_at" type="TIMESTAMP"/>
+            <column name="user_who_updated_id" type="BIGINT"/>
+            <column name="updated_at" type="TIMESTAMP"/>
+            <column name="user_who_deleted_id" type="BIGINT"/>
+            <column name="deleted_at" type="TIMESTAMP"/>
+        </createTable>
+
+        <createTable tableName="user_roles">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="user_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="role_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_who_created_id" type="BIGINT"/>
+            <column name="created_at" type="TIMESTAMP"/>
+            <column name="user_who_updated_id" type="BIGINT"/>
+            <column name="updated_at" type="TIMESTAMP"/>
+            <column name="user_who_deleted_id" type="BIGINT"/>
+            <column name="deleted_at" type="TIMESTAMP"/>
+        </createTable>
+
+        <createTable tableName="medication_types">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_who_created_id" type="BIGINT"/>
+            <column name="created_at" type="TIMESTAMP"/>
+            <column name="user_who_updated_id" type="BIGINT"/>
+            <column name="updated_at" type="TIMESTAMP"/>
+            <column name="user_who_deleted_id" type="BIGINT"/>
+            <column name="deleted_at" type="TIMESTAMP"/>
+        </createTable>
+
+        <createTable tableName="medications">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="medication_type_id" type="BIGINT"/>
+            <column name="name" type="VARCHAR(255)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="user_who_created_id" type="BIGINT"/>
+            <column name="created_at" type="TIMESTAMP"/>
+            <column name="user_who_updated_id" type="BIGINT"/>
+            <column name="updated_at" type="TIMESTAMP"/>
+            <column name="user_who_deleted_id" type="BIGINT"/>
+            <column name="deleted_at" type="TIMESTAMP"/>
+        </createTable>
+
+        <createTable tableName="medication_register">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="medication_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="presentation" type="VARCHAR(30)"/>
+            <column name="quantity" type="DOUBLE PRECISION"/>
+            <column name="additional_notes" type="TEXT"/>
+            <column name="user_who_created_id" type="BIGINT"/>
+            <column name="created_at" type="TIMESTAMP"/>
+            <column name="user_who_updated_id" type="BIGINT"/>
+            <column name="updated_at" type="TIMESTAMP"/>
+            <column name="user_who_deleted_id" type="BIGINT"/>
+            <column name="deleted_at" type="TIMESTAMP"/>
+        </createTable>
+
+        <createTable tableName="alerts">
+            <column autoIncrement="true" name="id" type="SERIAL">
+                <constraints primaryKey="true"/>
+            </column>
+            <column name="medication_register_id" type="BIGINT">
+                <constraints nullable="false"/>
+            </column>
+            <column name="name" type="VARCHAR(255)"/>
+            <column name="hours_to_repeat" type="DOUBLE PRECISION">
+                <constraints nullable="false"/>
+            </column>
+            <column name="doses_taken" type="INTEGER"/>
+            <column name="start_at" type="TIMESTAMP"/>
+            <column name="next_alert_at" type="TIMESTAMP"/>
+            <column name="user_who_created_id" type="BIGINT"/>
+            <column name="created_at" type="TIMESTAMP"/>
+            <column name="user_who_updated_id" type="BIGINT"/>
+            <column name="updated_at" type="TIMESTAMP"/>
+            <column name="user_who_deleted_id" type="BIGINT"/>
+            <column name="deleted_at" type="TIMESTAMP"/>
+        </createTable>
+
+        <addForeignKeyConstraint baseTableName="user_roles" baseColumnNames="user_id"
+                                 constraintName="fk_user_roles_user_id"
+                                 referencedTableName="users" referencedColumnNames="id" />
+
+        <addForeignKeyConstraint baseTableName="user_roles" baseColumnNames="role_id"
+                                 constraintName="fk_user_roles_role_id"
+                                 referencedTableName="roles" referencedColumnNames="id" />
+
+        <addForeignKeyConstraint baseTableName="medications" baseColumnNames="medication_type_id"
+                                 constraintName="fk_medications_medication_type_id"
+                                 referencedTableName="medication_types" referencedColumnNames="id" />
+
+        <addForeignKeyConstraint baseTableName="medication_register" baseColumnNames="medication_id"
+                                 constraintName="fk_medication_register_medication_id"
+                                 referencedTableName="medications" referencedColumnNames="id" />
+
+        <addForeignKeyConstraint baseTableName="alerts" baseColumnNames="medication_register_id"
+                                 constraintName="fk_alerts_medication_register_id"
+                                 referencedTableName="medication_register" referencedColumnNames="id" />
+    </changeSet>
+
+</databaseChangeLog>
