@@ -1,0 +1,256 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="202307072" author="JeysonAmado">
+        <sql>
+--             Analgésicos
+            INSERT INTO medications (id, medication_type_id, name) VALUES (1, 1, 'Paracetamol');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (2, 1, 'Ibuprofeno');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (3, 1, 'Ácido acetilsalicílico (aspirina)');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (4, 1, 'Naproxeno');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (5, 1, 'Tramadol');
+--             Antihistamínicos:
+            INSERT INTO medications (id, medication_type_id, name) VALUES (6, 2, 'Loratadina');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (7, 2, 'Cetirizina');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (8, 2, 'Fexofenadina');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (9, 2, 'Desloratadina');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (10, 2, 'Levocetirizina');
+--             Antibióticos:
+            INSERT INTO medications (id, medication_type_id, name) VALUES (11, 3, 'Amoxicilina');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (12, 3, 'Azitromicina');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (13, 3, 'Ciprofloxacino');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (14, 3, 'Claritromicina');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (15, 3, 'Doxiciclina');
+--             Antidepresivos:
+            INSERT INTO medications (id, medication_type_id, name) VALUES (16, 4, 'Sertralina');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (17, 4, 'Fluoxetina');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (18, 4, 'Escitalopram');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (19, 4, 'Venlafaxina');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (20, 4, 'Paroxetina');
+--             Antiinflamatorios:
+            INSERT INTO medications (id, medication_type_id, name) VALUES (21, 5, 'Diclofenaco');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (22, 5, 'Indometacina');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (23, 5, 'Ketorolaco');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (24, 5, 'Celecoxib');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (25, 5, 'Meloxicam');
+--             Antipiréticos:
+            INSERT INTO medications (id, medication_type_id, name) VALUES (26, 6, 'Paracetamol');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (27, 6, 'Ibuprofeno');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (28, 6, 'Ácido acetilsalicílico (aspirina)');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (29, 6, 'Naproxeno');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (30, 6, 'Metamizol');
+--             Antivirales:
+            INSERT INTO medications (id, medication_type_id, name) VALUES (31, 7, 'Oseltamivir');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (32, 7, 'Aciclovir');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (33, 7, 'Valaciclovir');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (34, 7, 'Famciclovir');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (35, 7, 'Ganciclovir');
+--             Broncodilatadores:
+            INSERT INTO medications (id, medication_type_id, name) VALUES (36, 8, 'Salbutamol');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (37, 8, 'Salmeterol');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (38, 8, 'Formoterol');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (39, 8, 'Tiotropio');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (40, 8, 'Ipratropio');
+--             Diuréticos:
+            INSERT INTO medications (id, medication_type_id, name) VALUES (41, 9, 'Furosemida');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (42, 9, 'Hidroclorotiazida');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (43, 9, 'Espironolactona');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (44, 9, 'Bumetanida');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (45, 9, 'Indapamida');
+--             Hipnóticos:
+            INSERT INTO medications (id, medication_type_id, name) VALUES (46, 10, 'Zolpidem');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (47, 10, 'Zopiclona');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (48, 10, 'Zaleplon');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (49, 10, 'Eszopiclona');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (50, 10, 'Temazepam');
+--             Laxantes:
+            INSERT INTO medications (id, medication_type_id, name) VALUES (51, 11, 'Lactulosa');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (52, 11, 'Bisacodilo');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (53, 11, 'Senósidos');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (54, 11, 'Macrogol');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (55, 11, 'Psyllium');
+--             Antihipertensivos:
+            INSERT INTO medications (id, medication_type_id, name) VALUES (56, 12, 'Losartán');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (57, 12, 'Enalapril');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (58, 12, 'Amlodipino');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (59, 12, 'Hidroclorotiazida');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (60, 12, 'Metoprolol');
+--             Anticoagulantes:
+            INSERT INTO medications (id, medication_type_id, name) VALUES (61, 13, 'Warfarina');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (62, 13, 'Heparina');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (63, 13, 'Rivaroxabán');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (64, 13, 'Apixabán');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (65, 13, 'Dabigatrán');
+--             Antidiabéticos:
+            INSERT INTO medications (id, medication_type_id, name) VALUES (66, 14, 'Metformina');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (67, 14, 'Glibenclamida');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (68, 14, 'Insulina glargina');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (69, 14, 'Sitagliptina');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (70, 14, 'Empagliflozina');
+--             Antiepilépticos:
+            INSERT INTO medications (id, medication_type_id, name) VALUES (71, 15, 'Carbamazepina');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (72, 15, 'Valproato');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (73, 15, 'Lamotrigina');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (74, 15, 'Fenitoína');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (75, 15, 'Levetiracetam');
+--             Antimicóticos:
+            INSERT INTO medications (id, medication_type_id, name) VALUES (76, 16, 'Fluconazol');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (77, 16, 'Itraconazol');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (78, 16, 'Clotrimazol');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (79, 16, 'Terbinafina');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (80, 16, 'Miconazol');
+--             Antiulcerosos:
+            INSERT INTO medications (id, medication_type_id, name) VALUES (81, 17, 'Omeprazol');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (82, 17, 'Esomeprazol');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (83, 17, 'Lansoprazol');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (84, 17, 'Pantoprazol');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (85, 17, 'Ranitidina');
+--             Antineoplásicos:
+            INSERT INTO medications (id, medication_type_id, name) VALUES (86, 18, 'Ciclofosfamida');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (87, 18, 'Metotrexato');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (88, 18, 'Fluorouracilo');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (89, 18, 'Doxorrubicina');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (90, 18, 'Tamoxifeno');
+--             Corticosteroides:
+            INSERT INTO medications (id, medication_type_id, name) VALUES (91, 19, 'Prednisona');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (92, 19, 'Dexametasona');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (93, 19, 'Hidrocortisona');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (94, 19, 'Betametasona');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (95, 19, 'Metilprednisolona');
+--             Vasodilatadores:
+            INSERT INTO medications (id, medication_type_id, name) VALUES (96, 20, 'Nitroglicerina');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (97, 20, 'Dinitrato de isosorbida');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (98, 20, 'Mononitrato de isosorbida');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (99, 20, 'Hidralazina');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (100, 20, 'Minoxidil');
+
+--             Antipsicóticos:
+            INSERT INTO medications (id, medication_type_id, name) VALUES (101, 21, 'Risperidona');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (102, 21, 'Olanzapina');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (103, 21, 'Quetiapina');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (104, 21, 'Aripiprazol');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (105, 21, 'Haloperidol');
+--             Anticonvulsivantes:
+            INSERT INTO medications (id, medication_type_id, name) VALUES (106, 22, 'Fenitoína');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (107, 22, 'Carbamazepina');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (108, 22, 'Valproato de sodio');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (109, 22, 'Lamotrigina');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (110, 22, 'Topiramato');
+--             Antirretrovirales:
+            INSERT INTO medications (id, medication_type_id, name) VALUES (111, 23, 'Tenofovir disoproxil fumarato');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (112, 23, 'Emtricitabina/tenofovir disoproxil fumarato');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (113, 23, 'Dolutegravir');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (114, 23, 'Raltegravir');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (115, 23, 'Atazanavir');
+--             Antihelmínticos:
+            INSERT INTO medications (id, medication_type_id, name) VALUES (116, 24, 'Albendazol');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (117, 24, 'Mebendazol');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (118, 24, 'Praziquantel');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (119, 24, 'Ivermectina');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (120, 24, 'Nitazoxanida');
+--             Antifúngicos:
+            INSERT INTO medications (id, medication_type_id, name) VALUES (121, 25, 'Fluconazol');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (122, 25, 'Itraconazol');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (123, 25, 'Voriconazol');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (124, 25, 'Anfotericina B');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (125, 25, 'Caspofungina');
+--             Antialérgicos:
+            INSERT INTO medications (id, medication_type_id, name) VALUES (126, 26, 'Cetirizina');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (127, 26, 'Loratadina');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (128, 26, 'Fexofenadina');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (129, 26, 'Desloratadina');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (130, 26, 'Levocetirizina');
+--             Antinauseosos:
+            INSERT INTO medications (id, medication_type_id, name) VALUES (131, 27, 'Ondansetrón');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (132, 27, 'Metoclopramida');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (133, 27, 'Dimenhidrinato');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (134, 27, 'Escopolamina');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (135, 27, 'Prometazina');
+--             Antitrombóticos:
+            INSERT INTO medications (id, medication_type_id, name) VALUES (136, 28, 'Ácido acetilsalicílico (aspirina)');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (137, 28, 'Clopidogrel');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (138, 28, 'Rivaroxabán');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (139, 28, 'Apixabán');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (140, 28, 'Warfarina');
+--             Antirreumáticos:
+            INSERT INTO medications (id, medication_type_id, name) VALUES (141, 29, 'Metotrexato');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (142, 29, 'Sulfasalazina');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (143, 29, 'Hidroxicloroquina');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (144, 29, 'Leflunomida');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (145, 29, 'Adalimumab');
+--             Antitusivos:
+            INSERT INTO medications (id, medication_type_id, name) VALUES (146, 30, 'Dextrometorfano');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (147, 30, 'Codeína');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (148, 30, 'Benzonatato');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (149, 30, 'Levodropropizina');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (150, 30, 'Oxeladina');
+--             Antieméticos:
+            INSERT INTO medications (id, medication_type_id, name) VALUES (151, 31, 'Ondansetrón');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (152, 31, 'Metoclopramida');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (153, 31, 'Dimenhidrinato');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (154, 31, 'Proclorperazina');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (155, 31, 'Prometazina');
+--             Antiespasmódicos:
+            INSERT INTO medications (id, medication_type_id, name) VALUES (156, 32, 'Diciclomina');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (157, 32, 'Escopolamina');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (158, 32, 'Hioscina');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (159, 32, 'Clidinio');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (160, 32, 'Mebeverina');
+--             Anticonceptivos:
+            INSERT INTO medications (id, medication_type_id, name) VALUES (161, 33, 'Levonorgestrel-etinilestradiol (píldora combinada)');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (162, 33, 'Desogestrel (minipíldora)');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (163, 33, 'Noretisterona (inyección)');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (164, 33, 'Implante subdérmico (progestina)');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (165, 33, 'Microgynon');
+--             Agentes bloqueadores neuromusculares:
+            INSERT INTO medications (id, medication_type_id, name) VALUES (166, 34, 'Vecuronio');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (167, 34, 'Rocuronio');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (168, 34, 'Atracurio');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (169, 34, 'Pancuronio');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (170, 34, 'Cisatracurio');
+--             Agentes quelantes:
+            INSERT INTO medications (id, medication_type_id, name) VALUES (171, 35, 'Desferroxamina');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (172, 35, 'EDTA (ácido etilendiaminotetraacético)');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (173, 35, 'Succímero (ácido dimercaptosuccínico)');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (174, 35, 'DMSA (ácido dimercaptosuccínico)');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (175, 35, 'Deferiprona');
+--             Inmunosupresores:
+            INSERT INTO medications (id, medication_type_id, name) VALUES (176, 36, 'Ciclosporina');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (177, 36, 'Tacrolimús');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (178, 36, 'Azatioprina');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (179, 36, 'Micofenolato de mofetilo');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (180, 36, 'Sirolimús');
+--             Agentes hormonales:
+            INSERT INTO medications (id, medication_type_id, name) VALUES (181, 37, 'Hormona tiroidea (levotiroxina)');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (182, 37, 'Hormona de crecimiento humano');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (183, 37, 'Corticosteroides');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (184, 37, 'Estrógenos');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (185, 37, 'Progesterona');
+--             Fármacos antivirales de acción directa:
+            INSERT INTO medications (id, medication_type_id, name) VALUES (186, 38, 'Sofosbuvir');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (187, 38, 'Daclatasvir');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (188, 38, 'Ledipasvir/sofosbuvir');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (189, 38, 'Glecaprevir/pibrentasvir');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (190, 38, 'Velpatasvir/sofosbuvir');
+--             Fármacos antiinflamatorios no esteroideos:
+            INSERT INTO medications (id, medication_type_id, name) VALUES (191, 39, 'Ibuprofeno');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (192, 39, 'Naproxeno');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (193, 39, 'Diclofenaco');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (194, 39, 'Indometacina');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (195, 39, 'Ketorolaco');
+--             Quimioterapia:
+            INSERT INTO medications (id, medication_type_id, name) VALUES (196, 40, 'Paclitaxel');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (197, 40, 'Doxorrubicina');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (198, 40, 'Ciclofosfamida');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (199, 40, 'Fluorouracilo');
+            INSERT INTO medications (id, medication_type_id, name) VALUES (200, 40, 'Cisplatino');
+        </sql>
+        <rollback>
+            <sql>
+                DELETE FROM medications WHERE ID &gt;= 1 AND ID &lt;= 200;
+            </sql>
+        </rollback>
+    </changeSet>
+</databaseChangeLog>

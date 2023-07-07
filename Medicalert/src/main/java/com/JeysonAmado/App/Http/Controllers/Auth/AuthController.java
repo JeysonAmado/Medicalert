@@ -27,7 +27,6 @@ import static com.JeysonAmado.App.Utilities.Constants.UserRoleConstant.CUSTOMER_
 @RequestMapping("/auth")
 public class AuthController {
 
-
     private final AuthenticationManager authenticationManager;
     private final JWTUtilities jwtUtilities;
 
@@ -44,13 +43,19 @@ public class AuthController {
     }
 
     @PostMapping("/login")
-    public ResponseEntity<Void> login(@RequestBody LoginDto loginDto){
-        UsernamePasswordAuthenticationToken login = new UsernamePasswordAuthenticationToken(loginDto.getEmail(),loginDto.getPassword());
-        Authentication authentication = this.authenticationManager.authenticate(login);
-        CustomUserDetails userDetails = (CustomUserDetails) authentication.getPrincipal();
-        Long userId = userDetails.getId();
-        String jwt = this.jwtUtilities.create(loginDto.getEmail(), userId);
-        return ResponseEntity.ok().header(HttpHeaders.AUTHORIZATION, jwt).build();
+    public ResponseEntity<String> login(@RequestBody LoginDto loginDto){
+        try {
+            UsernamePasswordAuthenticationToken login = new UsernamePasswordAuthenticationToken(loginDto.getEmail(),loginDto.getPassword());
+            Authentication authentication = this.authenticationManager.authenticate(login);
+            CustomUserDetails userDetails = (CustomUserDetails) authentication.getPrincipal();
+            Long userId = userDetails.getId();
+            String jwt = this.jwtUtilities.create(loginDto.getEmail(), userId);
+            return ResponseEntity.ok().header(HttpHeaders.AUTHORIZATION, jwt).body("Inicio de sesión exitoso");
+        }
+        catch (Exception e){
+            return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Usuario o contraseña incorrecta");
+        }
+
     }
 
     @PostMapping("/register")
@@ -62,7 +67,7 @@ public class AuthController {
                 userRoleService.createUserRole(user.getId(),CUSTOMER_ID);
                 return ResponseEntity.status(HttpStatus.CREATED).body("Usuario Registrado");
             }catch (Exception e) {
-                return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body("Error al registrar usuario: " + e.getMessage());
+                return ResponseEntity.status(HttpStatus.UNAUTHORIZED).body("Error al registrar usuario: " + e.getMessage());
             }
         }
         else {

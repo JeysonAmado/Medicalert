@@ -2,7 +2,6 @@ package com.JeysonAmado.App.Http.Config;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.configuration.AuthenticationConfiguration;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -24,11 +23,10 @@ public class SecurityConfig {
                 .authorizeHttpRequests()
                 .requestMatchers("/auth/**").permitAll()
                 .requestMatchers("/users/**").hasRole("ADMIN")
+                .requestMatchers("/medications/**").hasRole("ADMIN")
+                .requestMatchers("/medication_type/**").hasRole("ADMIN")
+                .requestMatchers("/medications_register/**").hasAnyRole("CUSTOMER","ADMIN")
                 .requestMatchers("/alerts/**").hasAnyRole("CUSTOMER","ADMIN")
-                .requestMatchers("/medications/**").hasAnyRole("CUSTOMER","ADMIN")
-                .requestMatchers(HttpMethod.POST).hasRole("ADMIN")
-                .requestMatchers(HttpMethod.PUT).hasRole("ADMIN")
-                .requestMatchers(HttpMethod.DELETE).hasRole("ADMIN")
                 .anyRequest()
                 .authenticated();
 

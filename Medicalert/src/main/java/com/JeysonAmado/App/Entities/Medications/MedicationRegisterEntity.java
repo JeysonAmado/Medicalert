@@ -1,5 +1,6 @@
 package com.JeysonAmado.App.Entities.Medications;
 
+import com.JeysonAmado.App.Dto.Medications.MedicationRegisterDto;
 import com.JeysonAmado.App.Entities.BaseEntity;
 import com.JeysonAmado.App.Entities.Users.UserEntity;
 import jakarta.persistence.*;
@@ -34,6 +35,21 @@ public class MedicationRegisterEntity extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "user_who_deleted_id", referencedColumnName = "id", insertable = false, updatable = false)
     private UserEntity userWhoDeleted;
+
+    public void mergeDto(MedicationRegisterDto medicationRegisterDto) {
+        if (medicationRegisterDto.getMedication() != null) {
+            this.setMedication(medicationRegisterDto.getMedication());
+        }
+        if (medicationRegisterDto.getPresentation() != null) {
+            this.setPresentation(medicationRegisterDto.getPresentation());
+        }
+        if (medicationRegisterDto.getQuantity() != 0) {
+            this.setQuantity(medicationRegisterDto.getQuantity());
+        }
+        if (medicationRegisterDto.getAdditionalNotes() != null){
+            this.setAdditionalNotes(medicationRegisterDto.getAdditionalNotes());
+        }
+    }
 
     public MedicationEntity getMedication() {
         return medication;
@@ -103,4 +119,6 @@ public class MedicationRegisterEntity extends BaseEntity {
                 ", userWhoDeleted=" + userWhoDeleted +
                 '}';
     }
+
+
 }

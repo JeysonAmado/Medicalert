@@ -21,16 +21,13 @@ import java.util.stream.Collectors;
 public class UserService implements UserServiceInterface {
 
     private final UserRepository userRepository;
-    private final UserRoleRepository userRoleRepository;
-
 
     @Autowired
     private UserMap userMap;
 
     @Autowired
-    public UserService(UserRepository userRepository, UserRoleRepository userRoleRepository) {
+    public UserService(UserRepository userRepository) {
         this.userRepository = userRepository;
-        this.userRoleRepository = userRoleRepository;
     }
     @Override
     public UserEntity createUser(UserEntity user, Long userId) {

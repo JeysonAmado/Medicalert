@@ -1,0 +1,55 @@
+<databaseChangeLog xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+                   xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                   xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+                   http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="202307071" author="JeysonAmado">
+        <sql>
+            INSERT INTO medication_types (ID, name) VALUES (1, 'Analgésicos');
+            INSERT INTO medication_types (ID, name) VALUES (2, 'Antihistamínicos');
+            INSERT INTO medication_types (ID, name) VALUES (3, 'Antibióticos');
+            INSERT INTO medication_types (ID, name) VALUES (4, 'Antidepresivos');
+            INSERT INTO medication_types (ID, name) VALUES (5, 'Antiinflamatorios');
+            INSERT INTO medication_types (ID, name) VALUES (6, 'Antipiréticos');
+            INSERT INTO medication_types (ID, name) VALUES (7, 'Antivirales');
+            INSERT INTO medication_types (ID, name) VALUES (8, 'Broncodilatadores');
+            INSERT INTO medication_types (ID, name) VALUES (9, 'Diuréticos');
+            INSERT INTO medication_types (ID, name) VALUES (10, 'Hipnóticos');
+            INSERT INTO medication_types (ID, name) VALUES (11, 'Laxantes');
+            INSERT INTO medication_types (ID, name) VALUES (12, 'Antihipertensivos');
+            INSERT INTO medication_types (ID, name) VALUES (13, 'Anticoagulantes');
+            INSERT INTO medication_types (ID, name) VALUES (14, 'Antidiabéticos');
+            INSERT INTO medication_types (ID, name) VALUES (15, 'Antiepilépticos');
+            INSERT INTO medication_types (ID, name) VALUES (16, 'Antimicóticos');
+            INSERT INTO medication_types (ID, name) VALUES (17, 'Antiulcerosos');
+            INSERT INTO medication_types (ID, name) VALUES (18, 'Antineoplásicos');
+            INSERT INTO medication_types (ID, name) VALUES (19, 'Corticosteroides');
+            INSERT INTO medication_types (ID, name) VALUES (20, 'Vasodilatadores');
+            INSERT INTO medication_types (ID, name) VALUES (21, 'Antipsicóticos');
+            INSERT INTO medication_types (ID, name) VALUES (22, 'Anticonvulsivantes');
+            INSERT INTO medication_types (ID, name) VALUES (23, 'Antirretrovirales');
+            INSERT INTO medication_types (ID, name) VALUES (24, 'Antihelmínticos');
+            INSERT INTO medication_types (ID, name) VALUES (25, 'Antifúngicos');
+            INSERT INTO medication_types (ID, name) VALUES (26, 'Antialérgicos');
+            INSERT INTO medication_types (ID, name) VALUES (27, 'Antinauseosos');
+            INSERT INTO medication_types (ID, name) VALUES (28, 'Antitrombóticos');
+            INSERT INTO medication_types (ID, name) VALUES (29, 'Antirreumáticos');
+            INSERT INTO medication_types (ID, name) VALUES (30, 'Antitusivos');
+            INSERT INTO medication_types (ID, name) VALUES (31, 'Antieméticos');
+            INSERT INTO medication_types (ID, name) VALUES (32, 'Antiespasmódicos');
+            INSERT INTO medication_types (ID, name) VALUES (33, 'Anticonceptivos');
+            INSERT INTO medication_types (ID, name) VALUES (34, 'Agentes bloqueadores neuromusculares');
+            INSERT INTO medication_types (ID, name) VALUES (35, 'Agentes quelantes');
+            INSERT INTO medication_types (ID, name) VALUES (36, 'Inmunosupresores');
+            INSERT INTO medication_types (ID, name) VALUES (37, 'Agentes hormonales');
+            INSERT INTO medication_types (ID, name) VALUES (38, 'Fármacos antivirales de acción directa');
+            INSERT INTO medication_types (ID, name) VALUES (39, 'Fármacos antiinflamatorios no esteroideos');
+            INSERT INTO medication_types (ID, name) VALUES (40, 'Quimioterapia');
+        </sql>
+        <rollback>
+            <sql>
+                DELETE FROM medications WHERE ID &gt;= 1 AND ID &lt;= 40;
+            </sql>
+        </rollback>
+    </changeSet>
+</databaseChangeLog>
