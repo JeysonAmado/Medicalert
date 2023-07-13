@@ -13,6 +13,9 @@ import org.hibernate.annotations.Where;
 public class MedicationEntity extends BaseEntity {
 
 
+    @Column(name = "medication_type_id")
+    private Long medicationTypeId;
+
     @ManyToOne
     @JoinColumn(name = "medication_type_id", referencedColumnName = "id", insertable = false, updatable = false)
     private MedicationTypeEntity medicationType;
@@ -31,6 +34,14 @@ public class MedicationEntity extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "user_who_deleted_id", referencedColumnName = "id", insertable = false, updatable = false)
     private UserEntity userWhoDeleted;
+
+    public Long getMedicationTypeId() {
+        return medicationTypeId;
+    }
+
+    public void setMedicationTypeId(Long medicationTypeId) {
+        this.medicationTypeId = medicationTypeId;
+    }
 
     public MedicationTypeEntity getMedicationType() {
         return medicationType;

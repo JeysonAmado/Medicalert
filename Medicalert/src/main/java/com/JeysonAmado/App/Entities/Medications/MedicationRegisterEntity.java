@@ -11,15 +11,19 @@ import org.hibernate.annotations.Where;
 @Table(name = "medication_register")
 public class MedicationRegisterEntity extends BaseEntity {
 
+
+    @Column(name = "medication_id")
+    private Long medicationId;
+
     @ManyToOne
     @JoinColumn(name = "medication_id", referencedColumnName = "id", insertable = false, updatable = false)
     private MedicationEntity medication;
 
     @Column
-    private String presentation;
+    private double quantity;
 
     @Column
-    private double quantity;
+    private String presentation;
 
     @Column(name = "additional_notes")
     private String additionalNotes;
@@ -38,7 +42,7 @@ public class MedicationRegisterEntity extends BaseEntity {
 
     public void mergeDto(MedicationRegisterDto medicationRegisterDto) {
         if (medicationRegisterDto.getMedication() != null) {
-            this.setMedication(medicationRegisterDto.getMedication());
+            this.setMedicationId(medicationRegisterDto.getMedication());
         }
         if (medicationRegisterDto.getPresentation() != null) {
             this.setPresentation(medicationRegisterDto.getPresentation());
@@ -49,6 +53,14 @@ public class MedicationRegisterEntity extends BaseEntity {
         if (medicationRegisterDto.getAdditionalNotes() != null){
             this.setAdditionalNotes(medicationRegisterDto.getAdditionalNotes());
         }
+    }
+
+    public Long getMedicationId() {
+        return medicationId;
+    }
+
+    public void setMedicationId(Long medicationId) {
+        this.medicationId = medicationId;
     }
 
     public MedicationEntity getMedication() {

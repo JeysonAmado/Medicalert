@@ -3,15 +3,12 @@ package com.JeysonAmado.App.Services;
 import com.JeysonAmado.App.Dto.Auth.RegisterDto;
 import com.JeysonAmado.App.Dto.User.UserDto;
 import com.JeysonAmado.App.Entities.Users.UserEntity;
-import com.JeysonAmado.App.Entities.Users.UserRoleEntity;
 import com.JeysonAmado.App.Interfaces.Services.UserServiceInterface;
 import com.JeysonAmado.App.Maps.Users.UserMap;
 import com.JeysonAmado.App.Repositories.Users.UserRepository;
-import com.JeysonAmado.App.Repositories.Users.UserRoleRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.stereotype.Service;
-
 
 import java.util.List;
 import java.util.NoSuchElementException;
@@ -22,12 +19,12 @@ public class UserService implements UserServiceInterface {
 
     private final UserRepository userRepository;
 
-    @Autowired
-    private UserMap userMap;
+    private final UserMap userMap;
 
     @Autowired
-    public UserService(UserRepository userRepository) {
+    public UserService(UserRepository userRepository, UserMap userMap) {
         this.userRepository = userRepository;
+        this.userMap = userMap;
     }
     @Override
     public UserEntity createUser(UserEntity user, Long userId) {
@@ -41,7 +38,7 @@ public class UserService implements UserServiceInterface {
     @Override
     public UserDto getUser(Long id) {
         UserEntity user = userRepository.findById(id).orElse(null);
-        return userMap.toDto(user);
+        return user != null ? userMap.toDto(user) : null;
     }
 
     @Override

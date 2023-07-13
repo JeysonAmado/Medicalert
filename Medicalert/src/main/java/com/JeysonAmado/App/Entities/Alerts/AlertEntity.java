@@ -1,5 +1,6 @@
 package com.JeysonAmado.App.Entities.Alerts;
 
+import com.JeysonAmado.App.Dto.Alerts.AlertDto;
 import com.JeysonAmado.App.Entities.BaseEntity;
 import com.JeysonAmado.App.Entities.Medications.MedicationRegisterEntity;
 import com.JeysonAmado.App.Entities.Users.UserEntity;
@@ -13,6 +14,9 @@ import java.time.LocalDateTime;
 @Where(clause = "deleted_at is NULL")
 @Table(name = "alerts")
 public class AlertEntity extends BaseEntity {
+
+    @Column(name = "medication_register_id")
+    private Long medicationRegisterId;
 
     @ManyToOne
     @JoinColumn(name = "medication_register_id", referencedColumnName = "id", insertable = false, updatable = false)
@@ -44,6 +48,50 @@ public class AlertEntity extends BaseEntity {
     @ManyToOne
     @JoinColumn(name = "user_who_deleted_id", referencedColumnName = "id", insertable = false, updatable = false)
     private UserEntity userWhoDeleted;
+
+    public void mergeDto(AlertDto alertDto) {
+        if (alertDto.getMedicationRegister() != null) {
+            this.setMedicationRegisterId(alertDto.getMedicationRegister());
+        }
+        if (alertDto.getName() != null) {
+            this.setName(alertDto.getName());
+        }
+        if (alertDto.getHoursToRepeat() != 0) {
+            this.setHoursToRepeat(alertDto.getHoursToRepeat());
+        }
+        if (alertDto.getDosesTaken() != 0) {
+            this.setDosesTaken(alertDto.getDosesTaken());
+        }
+
+        if (alertDto.getStartAt() != null) {
+            this.setStartAt(alertDto.getStartAt());
+        }
+
+        if (alertDto.getNextAlertAt() != null) {
+            this.setNextAlertAt(alertDto.getNextAlertAt());
+        }
+    }
+
+    public int[] calculateHoursAndMinutes(double hoursToRepeat){
+        int hours = (int) hoursToRepeat;
+        int minutes = (int) ((hoursToRepeat - hours) * 60);
+
+        return new int[]{hours, minutes};
+    }
+
+    public void calculateNextAlert(LocalDateTime initialDate, int [] hoursAndMinutes){
+        int hours = hoursAndMinutes[0];
+        int minutes = hoursAndMinutes[1];
+        this.setNextAlertAt(initialDate.plusHours(hours).plusMinutes(minutes));
+    }
+
+    public Long getMedicationRegisterId() {
+        return medicationRegisterId;
+    }
+
+    public void setMedicationRegisterId(Long medicationRegisterId) {
+        this.medicationRegisterId = medicationRegisterId;
+    }
 
     public MedicationRegisterEntity getMedicationRegister() {
         return medicationRegister;

@@ -18,7 +18,7 @@ import static org.junit.jupiter.api.Assertions.assertEquals;
 @ExtendWith(SpringExtension.class)
 @SpringBootTest
 @WebAppConfiguration
-@ActiveProfiles("test")
+@ActiveProfiles("register-test")
 public class AuthControllerTest {
 
     @Autowired

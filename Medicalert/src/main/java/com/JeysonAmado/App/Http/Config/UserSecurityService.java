@@ -30,11 +30,8 @@ public class UserSecurityService implements UserDetailsService {
     @Override
     public UserDetails loadUserByUsername(String email) throws UsernameNotFoundException {
         UserEntity userEntity = this.userRepository.findByEmail(email);
-
         String[] roles = userEntity.getRoles().stream().map(RoleEntity::getName).toArray(String[]::new);
-
         Collection<GrantedAuthority> authorities = this.getGrantedAuthorities(roles);
-
         return new CustomUserDetails(userEntity, authorities);
     }
 
@@ -43,18 +40,8 @@ public class UserSecurityService implements UserDetailsService {
 
         for (String role:roles) {
             authorities.add(new SimpleGrantedAuthority("ROLE_"+role));
-            for (String authority:this.getAuthorities(role)) {
-                authorities.add(new SimpleGrantedAuthority(authority));
-            }
-
         }
         return authorities;
     }
 
-    private String[] getAuthorities(String role){
-        if (role.equals("ADMIN") || role.equals("EMPLOYER")){
-            return new String[] {"ADD_PRODUCTS"};
-        }
-        return new String[] {};
-    }
 }

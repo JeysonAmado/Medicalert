@@ -6,11 +6,15 @@ import lombok.Data;
 @Data
 public class MedicationRegisterDto {
 
-    private MedicationEntity medication;
+    private Long id;
 
-    private String presentation;
+    private Long medication;
+
+    private String medicationName;
 
     private double quantity;
+
+    private String presentation;
 
     private String additionalNotes;
 }

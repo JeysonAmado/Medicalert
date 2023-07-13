@@ -34,7 +34,7 @@ public class MedicationRegisterService implements MedicationRegisterServiceInter
     @Override
     public MedicationRegisterDto getById(Long id) {
         MedicationRegisterEntity medicationRegister = medicationRegisterRepository.findById(id).orElse(null);
-        return medicationRegisterMap.toDto(medicationRegister);
+        return medicationRegister != null ? medicationRegisterMap.toDto(medicationRegister) : null;
     }
 
     @Override

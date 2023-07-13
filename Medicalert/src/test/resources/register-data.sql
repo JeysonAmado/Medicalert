@@ -95,34 +95,3 @@ CREATE TABLE alerts (
 
 INSERT INTO roles (id, name) VALUES (1, 'ADMIN');
 INSERT INTO roles (id, name) VALUES (2, 'CUSTOMER');
-
-DELETE FROM users;
-
-INSERT INTO users (id, name, password, email)
-VALUES (80, 'admin', '$2a$10$/j.Djt8jRpESq8He7XwaluRQD343lNKX7J8No/vZN2LSSPT4x1sAK', 'jeyson@admin.net');
-
-INSERT INTO users (id, name, password, email)
-VALUES (52, 'Goku', '$2a$10$bYkNvKtpmIiDy9izWGozOOFlIgV2kopmJ3CA9n7poLwwEGoeYdsZ6', 'goku@example.com');
-
-DELETE FROM user_roles;
-
-INSERT INTO user_roles (id,user_id, role_id)
-VALUES (125,80, 1);
-
-INSERT INTO user_roles (id, user_id, role_id)
-VALUES (126,52, 2);
-
-INSERT INTO medication_types (name, user_who_created_id, created_at)
-VALUES ('Tipo de medicamento 1', 80, current_timestamp);
-INSERT INTO medication_types (name, user_who_created_id, created_at)
-VALUES ('Tipo de medicamento 2', 80, current_timestamp);
-
-INSERT INTO medications (medication_type_id, name, user_who_created_id, created_at)
-VALUES (1, 'Medicamento 1', 80, current_timestamp);
-INSERT INTO medications (medication_type_id, name, user_who_created_id, created_at)
-VALUES (2, 'Medicamento 2', 80, current_timestamp);
-
-INSERT INTO medication_register (medication_id, presentation, quantity, additional_notes, user_who_created_id, created_at)
-VALUES (1, 'Presentación 1', 10.5, 'Notas adicionales 1', 80, current_timestamp);
-INSERT INTO medication_register (medication_id, presentation, quantity, additional_notes, user_who_created_id, created_at)
-VALUES (2, 'Presentación 2', 5.75, 'Notas adicionales 2', 80, current_timestamp);

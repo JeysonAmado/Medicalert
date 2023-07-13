@@ -84,44 +84,46 @@ public class MedicationRegisterServiceTest {
         assertNull(foundMedicationRegister.getAdditionalNotes());
     }
 
-//    @Test
-//    public void isGetAllWorking(){
-//        MedicationTypeEntity medicationType = new MedicationTypeEntity();
-//        medicationType.setName("Analgensico");
-//        MedicationTypeEntity savedMedicationType = medicationTypeRepository.save(medicationType);
-//
-//        MedicationEntity medication = new MedicationEntity();
-//        medication.setName("Naproxeno");
-//        medication.setMedicationType(savedMedicationType);
-//        MedicationEntity savedMedication = medicationRepository.save(medication);
-//
-//        MedicationRegisterEntity medicationRegisterOne = new MedicationRegisterEntity();
-//        medicationRegisterOne.setMedication(medicationRepository.findById(savedMedication.getId()).orElse(null));
-//        medicationRegisterOne.setQuantity(3);
-//        medicationRegisterOne.setPresentation("ml");
-//        medicationRegisterOne.setAdditionalNotes(null);
-//
-//        MedicationRegisterEntity medicationRegisterTwo = new MedicationRegisterEntity();
-//        medicationRegisterTwo.setMedication(savedMedication);
-//        medicationRegisterTwo.setQuantity(8);
-//        medicationRegisterTwo.setPresentation("ml");
-//        medicationRegisterTwo.setAdditionalNotes("Consumir en ayunas");
-//
-//        UserEntity user = new UserEntity();
-//        user.setName("user");
-//        user.setEmail("user@example");
-//        user.setPassword("example");
-//        UserEntity savedUser = userRepository.save(user);
-//
-//        MedicationRegisterEntity storedMedicationRegisterOne = medicationRegisterService.store(medicationRegisterOne,savedUser.getId());
-//        MedicationRegisterEntity storedMedicationRegisterTwo = medicationRegisterService.store(medicationRegisterTwo,savedUser.getId());
-//        List<MedicationRegisterDto> allMedicationRegister = medicationRegisterService.getAll();
-//
-//        assertNotNull(allMedicationRegister);
-//        assertEquals(2, allMedicationRegister.size());
-//        assertTrue(allMedicationRegister.contains(medicationRegisterMap.toDto(storedMedicationRegisterOne)));
-//        assertTrue(allMedicationRegister.contains(medicationRegisterMap.toDto(storedMedicationRegisterTwo)));
-//    }
+    @Test
+    public void isGetAllWorking(){
+        MedicationTypeEntity medicationType = new MedicationTypeEntity();
+        medicationType.setName("Analgensico");
+        MedicationTypeEntity savedMedicationType = medicationTypeRepository.save(medicationType);
+
+        MedicationEntity medication = new MedicationEntity();
+        medication.setName("Naproxeno");
+        medication.setMedicationType(savedMedicationType);
+        MedicationEntity savedMedication = medicationRepository.save(medication);
+
+        MedicationRegisterEntity medicationRegisterOne = new MedicationRegisterEntity();
+        medicationRegisterOne.setMedicationId(savedMedication.getId());
+        medicationRegisterOne.setMedication(savedMedication);
+        medicationRegisterOne.setQuantity(3);
+        medicationRegisterOne.setPresentation("ml");
+        medicationRegisterOne.setAdditionalNotes(null);
+
+        MedicationRegisterEntity medicationRegisterTwo = new MedicationRegisterEntity();
+        medicationRegisterTwo.setMedicationId(savedMedication.getId());
+        medicationRegisterTwo.setMedication(savedMedication);
+        medicationRegisterTwo.setQuantity(8);
+        medicationRegisterTwo.setPresentation("ml");
+        medicationRegisterTwo.setAdditionalNotes("Consumir en ayunas");
+
+        UserEntity user = new UserEntity();
+        user.setName("user");
+        user.setEmail("user@example");
+        user.setPassword("example");
+        UserEntity savedUser = userRepository.save(user);
+
+        MedicationRegisterEntity storedMedicationRegisterOne = medicationRegisterService.store(medicationRegisterOne,savedUser.getId());
+        MedicationRegisterEntity storedMedicationRegisterTwo = medicationRegisterService.store(medicationRegisterTwo,savedUser.getId());
+        List<MedicationRegisterDto> allMedicationRegister = medicationRegisterService.getAll();
+
+        assertNotNull(allMedicationRegister);
+        assertEquals(2, allMedicationRegister.size());
+        assertTrue(allMedicationRegister.contains(medicationRegisterMap.toDto(storedMedicationRegisterOne)));
+        assertTrue(allMedicationRegister.contains(medicationRegisterMap.toDto(storedMedicationRegisterTwo)));
+    }
 
     @Test
     public void isUpdateWorking(){
@@ -180,7 +182,5 @@ public class MedicationRegisterServiceTest {
         assertEquals(3L,updatedMedicationRegister.getUserWhoUpdatedId());
         assertEquals(4L,updatedMedicationRegister.getUserWhoDeletedId());
     }
-
-
 
 }

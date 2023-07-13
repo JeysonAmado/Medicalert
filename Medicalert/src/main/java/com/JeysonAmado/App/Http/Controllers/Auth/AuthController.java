@@ -4,6 +4,7 @@ package com.JeysonAmado.App.Http.Controllers.Auth;
 import com.JeysonAmado.App.Dto.Auth.LoginDto;
 import com.JeysonAmado.App.Dto.Auth.RegisterDto;
 import com.JeysonAmado.App.Entities.Users.UserEntity;
+import com.JeysonAmado.App.Entities.Users.UserRoleEntity;
 import com.JeysonAmado.App.Http.Config.CustomUserDetails;
 import com.JeysonAmado.App.Http.Config.JWTUtilities;
 import com.JeysonAmado.App.Interfaces.Services.UserRoleServiceInterface;
