@@ -1,0 +1,6 @@
+.GradientButton {
+    --background: linear-gradient(90deg, #7CD0E2 0%, #71E3B9 100%);
+    color: black;
+    max-width: 600px;
+    margin: 20px 0;
+}

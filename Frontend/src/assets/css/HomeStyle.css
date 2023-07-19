@@ -1,0 +1,11 @@
+/* Home.css */
+ion-content {
+    --ion-background-color: transparent;
+}
+
+ion-content::part(content) {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}

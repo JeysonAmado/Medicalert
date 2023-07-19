@@ -1,0 +1,8 @@
+/* CenteredContent.css */
+.centered-content {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: auto;
+}
